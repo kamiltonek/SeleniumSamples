@@ -5,25 +5,24 @@ import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.Test;
 import pt.Selenium.WebElement.JQueryDownloadProgressBarsPage;
 
-import static org.junit.jupiter.api.Assertions.*;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
 class JQueryDownloadProgressBarsPageTest {
-    private static JQueryDownloadProgressBarsPage page2 = JQueryDownloadProgressBarsPage.getInstance(); //done
+    private static JQueryDownloadProgressBarsPage page = JQueryDownloadProgressBarsPage.getInstance(); //done
 
     @AfterAll
     public static void closeDriver(){
-        page2.closeDriver();
+        page.closeDriver();
     }
 
     @AfterEach
     public void closeDriver2(){
-        page2.waitForRefresh();
+        page.waitForRefresh();
     }
 
     @Test
     public void p7_downloadResult(){
-        String result = page2.startDownload();
+        String result = page.startDownload();
 
         assertEquals("Close", result);
     }
