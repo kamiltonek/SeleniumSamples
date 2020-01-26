@@ -34,7 +34,11 @@ public class BootstrapModalsPage extends BasicPage {
 
         if(close){
             wait.until(ExpectedConditions.visibilityOf(webDriver.findElement(singleClose))).click();
-            wait.until(ExpectedConditions.elementToBeClickable(singleModelButton)).click();
+            try {
+                Thread.sleep(200);
+            } catch (InterruptedException e) {
+                e.printStackTrace();
+            }
         }
         else {
             wait.until(ExpectedConditions.visibilityOf(webDriver.findElement(singleSave))).click();
@@ -46,7 +50,7 @@ public class BootstrapModalsPage extends BasicPage {
 
     public void waitForRefresh(){
         Refresh();
-        wait.until(ExpectedConditions.stalenessOf(webDriver.findElement(By.id("range"))));
+        wait.until(ExpectedConditions.stalenessOf(singleModelButton));
         Init();
     }
 
